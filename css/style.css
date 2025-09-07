@@ -1,12 +1,11 @@
 /* ================== Header ================== */
-/* HEADER */
-/* =========================
-   HEADER
-========================= */
+
 .site-header {
+  position: relative;
   width: 100%;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000; /* så den ligger ovanför hero */
 }
 .header-inner {
   display: flex;
@@ -30,11 +29,97 @@
 
 /* Navbar */
 .main-nav ul {
-  display: flex;      /* horisontell lista */
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav {
+  position: relative; /* gör nav till referenspunkt för dropdown */
+}
+
+.has-dropdown {
+  position: relative; /* måste vara relative för att absolute-position på dropdown ska funka */
+}
+
+.has-dropdown > a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  background: none;
+  position: relative;
+}
+
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  height: 153px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center; /* centrerar inner */
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-20px);
+  z-index: 1050;
+}
+
+
+.has-dropdown.active .mega-dropdown,
+.has-dropdown:hover .mega-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mega-dropdown-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.mega-dropdown-inner ul {
+  display: flex;
   gap: 30px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.mega-dropdown-inner ul li a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #333;
+  padding: 10px 0;
+}
+
+.mega-dropdown-inner ul li a:hover {
+  color: #0077cc;
+}
+
+.mega-dropdown li {
+  margin-bottom: 5px;
+}
+
+.mega-dropdown li a {
+  color: #333;
+  text-decoration: none;
 }
 
 .main-nav a {
@@ -46,49 +131,84 @@
   color: #333;
 }
 
+.main-nav > ul > li:not(.has-dropdown) > a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.main-nav > ul > li:not(.has-dropdown) > a:hover {
+  color: #0077cc;
+}
+
 /* Högerdel: sociala ikoner + knapp */
 .header-right {
   display: flex;
-  align-items: center; /* centrerar vertikalt med flex-end på container */
+  align-items: center;
   gap: 15px;
+  flex-direction: row;  /* horisontellt på desktop */
 }
 
+/* Sociala ikoner */
 .header-right .social-icon {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  text-decoration: none;
+  font-size: 18px;
   color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
 }
 
-.btn-create-account {
-  padding: 10px 20px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+.header-right .create-account-text {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
   text-transform: uppercase;
+  color: #333 !important;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.header-right .create-account-text:hover {
+  text-decoration: underline;
+  color: #0077cc !important;
+}
+
+.btn-login {
+  padding: 8px 16px;
   background-color: #0077cc;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;      /* ändrad från 14px */
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.header-right .social-icon:hover {
+  color: #0077cc;
 }
 
-
-.btn-create-account:hover {
-  background-color: #005fa3;
+.desktop-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 /* Hamburger (mobil) */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
+  display: none; /* visas bara på små skärmar via media query */
   background: none;
   border: none;
+  font-size: 24px; /* storlek på ikonen */
   cursor: pointer;
-  padding: 0;
 }
 
 .hamburger span {
@@ -98,6 +218,156 @@
   background: #333;
   border-radius: 2px;
 }
+
+/* Döljer mobilen meny som standard */
+.mobile-menu {
+  display: none;
+}
+
+/* ================= Mega Dropdown ================= */
+
+/* Parent med dropdown */
+.has-dropdown {
+  position: relative;
+}
+
+/* Dropdown-boxen */
+.mega-dropdown {
+  position: absolute;
+  top: 100%;          /* precis under header */
+  left: 0;
+  width: 100vw;       /* full bredd */
+  height: 153px;      /* fast höjd */
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-20px);
+  z-index: 1050;
+}
+
+/* Inre container för centrering av länkar */
+.mega-dropdown-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Lista med länkar i dropdown */
+.mega-dropdown-inner ul {
+  display: flex;
+  gap: 30px;               /* spacing mellan länkar */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.mega-dropdown-inner ul li a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #333;
+  padding: 10px 0;
+}
+
+.mega-dropdown-inner ul li a:hover {
+  color: #0077cc;
+}
+
+/* Visa dropdown när parent är active */
+.has-dropdown.active .mega-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Hover-delay via JS (lägg till class "active" istället för hover direkt) */
+
+
+/* ================= Nav-länkar ================= */
+
+/* Endast länkar som har dropdown */
+.has-dropdown > a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Vanliga nav-länkar (inte dropdown) */
+.main-nav > ul > li:not(.has-dropdown) > a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Hover på vanliga nav-länkar */
+.main-nav > ul > li:not(.has-dropdown) > a:hover {
+  color: #0077cc;
+}
+
+/* ================= Desktop Hover ================= */
+
+/* Lägg till aktiv klass med JS istället för ren hover för delay */
+.has-dropdown:hover .mega-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Visa hamburger på mobiler */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .main-nav,
+  .social-icons-mobile {
+    display: none;
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
+  
+.mega-dropdown {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+    box-shadow: none;
+  }
+
+  .main-nav ul li.active .mega-dropdown {
+    display: flex;
+  }
+
+  .mega-dropdown ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  
+}
+
 
 /* ================== Hero ================== */
 .hero {
@@ -309,7 +579,7 @@
   font-weight: 600;
   font-size: 24px;
   margin-bottom: 15px;
-  text-align: center;
+  text-align: left;
 }
 
 .why-box ul {
@@ -322,11 +592,47 @@
 }
 
 /* Mobil */
-@media (max-width: 1024px) {
-  .why-boxes {
-    flex-direction: column;
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column;   /* staplar boxarna vertikalt */
+    align-items: center;
     gap: 20px;
+    margin: 60px 0;           /* större topp och botten så de inte krockar */
+    height: auto;             /* låter höjden anpassa sig efter innehåll */
+    padding: 0 20px;          /* lite padding på sidorna */
   }
+
+  .content-box {
+    width: 90%;               /* anpassar bredden på mobilen */
+    max-width: 528px;
+    height: auto;             /* låter boxen växa efter text */
+    padding: 36px 24px;       /* behåller padding inuti boxen */
+  }
+
+  .hamburger {
+    display: block; /* nu visas den */
+  }
+
+  .header-right .social-icon,
+  .btn-create-account {
+    display: none;
+  }
+
+  .create-account-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;      /* samma som nav */
+  text-transform: uppercase;
+  color: #333;           /* samma som nav */
+  text-decoration: none;
+  margin-left: 12px;     /* avstånd från logga in knapp */
+}
+
+.create-account-text:hover {
+  text-decoration: underline;
+}
+
+  
+
 }
 
 
@@ -390,39 +696,96 @@
 /* -----------------------
    Mobilmeny
 ------------------------ */
+/* Hamburger alltid synlig på mobil */
 @media (max-width: 900px) {
 
-  /* Dölj navbar och högerdel som standard */
-  .main-nav,
-  .header-right {
+  /* Hamburger alltid synlig */
+  .hamburger {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
+    margin: 4px 0;
+  }
+
+  /* Dölj desktop-sociala ikoner + knappar */
+  .header-right .social-icon,
+  .btn-login,
+  .create-account-text {
     display: none;
-    position: absolute;
-    top: 153px;  /* precis under header */
-    left: 0;
+  }
+
+
+
+  /* Mobilmeny */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
     width: 100%;
     background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    flex-direction: column;
+    position: absolute;
+    top: 153px; /* under header */
+    left: 0;
     padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    z-index: 1000;
     gap: 15px;
   }
 
-  .main-nav ul {
+  /* Visa mobilmenyn när aktiv */
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  /* Ställ navbar vertikalt */
+  .mobile-menu .main-nav ul {
     flex-direction: column;
     gap: 15px;
     margin: 0;
     padding: 0;
   }
 
-  /* Visa hamburger-knappen */
-  .hamburger {
+  /* Sociala ikoner och knappar i mobilen */
+  .mobile-menu .social-icon,
+  .mobile-menu .btn-login,
+  .mobile-menu .create-account-text {
     display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #333;
+    gap: 10px;
+    margin-top: 10px;
   }
 
-  /* När menyn är aktiv */
-  .main-nav.active,
-  .header-right.active {
-    display: flex;
+  .mobile-menu .social-icon i {
+    font-size: 18px;
   }
+
+  .mobile-menu .create-account-text:hover,
+  .mobile-menu .social-icon:hover {
+    color: #0077cc;
+    text-decoration: underline;
+  }
+
 }
+
+
+
+
 

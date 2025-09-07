@@ -4,50 +4,225 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liaguiden</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/content-why.css">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Open+Sans:wght@400&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="header-inner">
-<div class="logo">liaguiden.se</div>
+<div class="header-inner">
+    <div class="logo">Liaguiden</div>
+
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+
     <nav class="main-nav">
       <ul>
-        <li><a href="#">Guider</a></li>
-        <li><a href="#">Karriär</a></li>
+        <!-- Guider -->
+        <li class="has-dropdown" data-dropdown="guider">
+          <a href="#">Guider</a>
+          <div class="mega-dropdown" id="dropdown-guider">
+            <div class="mega-dropdown-inner">
+              <div class="dropdown-column">
+                <strong>Praktikstart</strong>
+                <ul>
+                  <li><a href="#">Hur ansöker man till praktik?</a></li>
+                  <li><a href="#">Förberedelser inför första dagen</a></li>
+                  <li><a href="#">Praktikavtal och dokument</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-column">
+                <strong>LIA & projekt</strong>
+                <ul>
+                  <li><a href="#">LIA-projektidéer</a></li>
+                  <li><a href="#">Tips för att lyckas med projekt</a></li>
+                  <li><a href="#">Samarbete med handledare</a></li>
+                  <li><a href="#">Dokumentation av projekt</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-column">
+                <strong>Karriär & utveckling</strong>
+                <ul>
+                  <li><a href="#">Bygga CV under LIA</a></li>
+                  <li><a href="#">Nätverkstips</a></li>
+                  <li><a href="#">Personlig utveckling under praktik</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-column">
+                <strong>Tips & mallar</strong>
+                <ul>
+                  <li><a href="#">Mall för dagbok/logg</a></li>
+                  <li><a href="#">Checklista inför handledning</a></li>
+                  <li><a href="#">Exempel på rapportstruktur</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Karriär -->
+        <li class="has-dropdown" data-dropdown="karriar">
+          <a href="#">Karriär</a>
+          <div class="mega-dropdown" id="dropdown-karriar">
+            <div class="mega-dropdown-inner">
+              <div class="dropdown-column">
+                <strong>Jobbmöjligheter</strong>
+                <ul>
+                  <li><a href="#">Hitta jobb efter examen</a></li>
+                  <li><a href="#">Praktik som väg in i arbetslivet</a></li>
+                  <li><a href="#">Extrajobb under studier</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-column">
+                <strong>Praktikplatser</strong>
+                <ul>
+                  <li><a href="#">Rekommenderade företag</a></li>
+                  <li><a href="#">Praktik hos startups</a></li>
+                  <li><a href="#">Offentliga sektorn</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-column">
+                <strong>Projekt & erfarenhet</strong>
+                <ul>
+                  <li><a href="#">Examensprojekt</a></li>
+                  <li><a href="#">Frivilliga projekt och föreningar</a></li>
+                  <li><a href="#">Portföljprojekt</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-column">
+                <strong>Kompetens & nätverk</strong>
+                <ul>
+                  <li><a href="#">Att bygga professionellt nätverk</a></li>
+                  <li><a href="#">Certifieringar och kurser</a></li>
+                  <li><a href="#">Tips för intervjuer och ansökningar</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <div class="hover-zone"></div>
+
+        <!-- Övriga länkar -->
         <li><a href="#">Vad är LIA?</a></li>
         <li><a href="#">Support</a></li>
       </ul>
     </nav>
 
-<div class="header-right">
-  <a href="#" class="social-icon">FB</a>
-  <a href="#" class="social-icon">LI</a>
-  <button class="btn-create-account">Skapa konto</button>
+    <div class="header-right">
+      <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <button class="btn-login">Logga in</button>
+      <a href="#" class="create-account-text">Skapa konto</a>
+    </div>
+</div>
+   <!-- Mobilmeny som är separat -->
+
+   <div class="mobile-menu">
+
+  <ul>
+    <!-- Guider -->
+    <li class="has-dropdown">
+      <a href="#">Guider</a>
+      <div class="mega-dropdown">
+        <div class="mega-dropdown-inner">
+          <div class="dropdown-column">
+            <strong>Praktikstart</strong>
+            <ul>
+              <li><a href="#">Hur ansöker man till praktik?</a></li>
+              <li><a href="#">Förberedelser inför första dagen</a></li>
+              <li><a href="#">Praktikavtal och dokument</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <strong>LIA & projekt</strong>
+            <ul>
+              <li><a href="#">LIA-projektidéer</a></li>
+              <li><a href="#">Tips för att lyckas med projekt</a></li>
+              <li><a href="#">Samarbete med handledare</a></li>
+              <li><a href="#">Dokumentation av projekt</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <strong>Karriär & utveckling</strong>
+            <ul>
+              <li><a href="#">Bygga CV under LIA</a></li>
+              <li><a href="#">Nätverkstips</a></li>
+              <li><a href="#">Personlig utveckling under praktik</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <strong>Tips & mallar</strong>
+            <ul>
+              <li><a href="#">Mall för dagbok/logg</a></li>
+              <li><a href="#">Checklista inför handledning</a></li>
+              <li><a href="#">Exempel på rapportstruktur</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Karriär -->
+    <li class="has-dropdown">
+      <a href="#">Karriär</a>
+      <div class="mega-dropdown">
+        <div class="mega-dropdown-inner">
+          <div class="dropdown-column">
+            <strong>Jobbmöjligheter</strong>
+            <ul>
+              <li><a href="#">Hitta jobb efter examen</a></li>
+              <li><a href="#">Praktik som väg in i arbetslivet</a></li>
+              <li><a href="#">Extrajobb under studier</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <strong>Praktikplatser</strong>
+            <ul>
+              <li><a href="#">Rekommenderade företag</a></li>
+              <li><a href="#">Praktik hos startups</a></li>
+              <li><a href="#">Offentliga sektorn</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <strong>Projekt & erfarenhet</strong>
+            <ul>
+              <li><a href="#">Examensprojekt</a></li>
+              <li><a href="#">Frivilliga projekt och föreningar</a></li>
+              <li><a href="#">Portföljprojekt</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-column">
+            <strong>Kompetens & nätverk</strong>
+            <ul>
+              <li><a href="#">Att bygga professionellt nätverk</a></li>
+              <li><a href="#">Certifieringar och kurser</a></li>
+              <li><a href="#">Tips för intervjuer och ansökningar</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Övriga länkar -->
+    <li><a href="#">Vad är LIA?</a></li>
+    <li><a href="#">Support</a></li>
+  </ul>
 </div>
 
-<!-- Hamburger -->
-<button class="hamburger" aria-label="Öppna meny">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-    </div>
-  </div>
-
-  
 </header>
 
 
-  <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
     <h1 class="hero-title">Praktik och LIA gjort enklare</h1>
     <p class="hero-subtitle">Liaguiden samlar alla resurser på ett ställe så att både företag och studenter enkelt kan navigera praktikprocessen.</p>
   </div>
 </section>
-
 
 <section class="content-section">
   <div class="content-box">
@@ -67,9 +242,8 @@
   </div>
 </section>
 
-  <section class="content-section-why">
+<section class="content-section-why">
   <div class="content-why-box">
-    <!-- Rubrik + text -->
     <div class="why-intro">
       <h2 class="why-title">Varför finns vi?</h2>
       <p class="why-text">
@@ -77,7 +251,6 @@
       </p>
     </div>
 
-    <!-- Två boxar under -->
     <div class="why-boxes">
       <div class="why-box">
         <h3>Våra tjänster</h3>
@@ -106,7 +279,6 @@
   </div>
 </section>
 
-
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

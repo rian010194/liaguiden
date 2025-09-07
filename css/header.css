@@ -1,0 +1,359 @@
+/* ================== Header ================== */
+.site-header {
+  position: sticky;
+  top: -72px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 40px 32px 40px;
+  height: 153px;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 29px;
+  color: #000;
+}
+
+/* ================== Navbar ================== */
+.main-nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li a {
+  display: inline-block;
+  padding: 10px 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+.main-nav li a:hover {
+  color: #0077cc;
+}
+
+/* ================== Dropdown-indikator ================== */
+.has-dropdown > a::after {
+  content: "\f0d7"; /* Font Awesome nedåtpil */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 6px;
+  font-size: 10px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.has-dropdown.active > a::after {
+  transform: rotate(180deg);
+}
+
+/* ================== Hover Zone ================== */
+.hover-zone {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 250px; /* justera efter behov */
+  z-index: 1040;
+  pointer-events: auto;
+  background: transparent;
+}
+
+/* ================== Dropdown ================== */
+.has-dropdown {
+  position: static;
+}
+
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.35s ease;
+  z-index: 1050;
+}
+
+.mega-dropdown.active {
+  opacity: 1;
+  pointer-events: auto;
+  max-height: 1000px; /* stort nog för all content */
+}
+
+/* Innerbox och kolumner */
+.mega-dropdown-inner {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mega-dropdown-inner > ul > li {
+  flex: 1; /* Fyra kolumner blir jämnt fördelade */
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mega-dropdown-inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mega-dropdown-inner ul li strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #000;
+}
+
+.mega-dropdown-inner ul li ul li a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mega-dropdown-inner ul li ul li a:hover {
+  color: #0077cc;
+}
+
+.mega-dropdown-inner ul li ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mega-dropdown-inner ul li a {
+  display: block;
+  padding: 5px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.mega-dropdown-inner ul li a:hover {
+  color: #0077cc;
+}
+
+/* ================== Header Right ================== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-right .social-icon {
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right .social-icon:hover {
+  color: #0077cc;
+}
+
+.btn-login {
+  padding: 8px 16px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.create-account-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+.create-account-text:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+/* ================== Hamburger / Mobile ================== */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  z-index: 2000; /* högre än allt annat */
+  color: #333;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  /* Huvudnav och header-right staplas och göms initialt */
+  .main-nav,
+  .header-right {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* När aktiv */
+  .main-nav.active,
+  .header-right.active {
+    display: flex;
+  }
+
+  /* Lista i nav staplad */
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .main-nav li a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  /* Dropdown på mobil */
+  .mega-dropdown {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mega-dropdown.active {
+    max-height: 2000px; /* tillräckligt för all content */
+  }
+
+  .mega-dropdown-inner {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 20px;
+  }
+
+  .mega-dropdown-inner > ul > li {
+    min-width: auto;
+    flex: none;
+  }
+
+  .mega-dropdown-inner ul li ul li a {
+    padding-left: 15px;
+  }
+
+  /* Header-right items */
+  .header-right {
+    padding: 10px 20px;
+  }
+}
+
+/* ================== Mobile Menu ================== */
+/* ================== Mobile Menu ================== */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  padding: 36px 20px;
+  position: absolute;
+  top: 100%; /* direkt under header */
+  left: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1500;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-menu li a {
+  display: block;
+  padding: 12px 0;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Dropdownar i mobilmenyn */
+.mobile-menu .mega-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.mobile-menu .mega-dropdown.active {
+  max-height: 2000px;
+}
+
+.mobile-menu .mega-dropdown-inner {
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+}
+
