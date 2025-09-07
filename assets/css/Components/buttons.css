@@ -1,0 +1,45 @@
+/* FIL: components/buttons.css */
+.btn-login {
+  padding: 8px 16px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.create-account-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+.create-account-text:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+/* Buttons */
+.content-btn {
+  width: 140px;
+  height: 36px;
+  background-color: #0077cc;
+  color: #fff;
+}
+
+.cta-content2 {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: #fff;
+}
+
+.cta-student, .cta-company {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: #fff;
+}

@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   background: hwb(197 45% 22%);
+  position: relative;
 }
 .hero-content {
   display: flex;

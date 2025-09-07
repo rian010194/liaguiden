@@ -1,0 +1,131 @@
+/* FIL: components/hamburger.css */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  z-index: 2000;
+  color: #333;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  padding: 36px 20px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1500;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-menu li a {
+  display: block;
+  padding: 12px 0;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+}
+
+.mobile-menu .mega-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.mobile-menu .mega-dropdown.active {
+  max-height: 2000px;
+}
+
+.mobile-menu .mega-dropdown-inner {
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+}
+
+/* ================== Media Queries ================== */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .main-nav,
+  .header-right {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .main-nav.active,
+  .header-right.active {
+    display: flex;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .main-nav li a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .mega-dropdown {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mega-dropdown.active {
+    max-height: 2000px;
+  }
+
+  .mega-dropdown-inner {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 20px;
+  }
+
+  .mega-dropdown-inner > ul > li {
+    min-width: auto;
+    flex: none;
+  }
+
+  .mega-dropdown-inner ul li ul li a {
+    padding-left: 15px;
+  }
+
+  .header-right {
+    padding: 10px 20px;
+  }
+}

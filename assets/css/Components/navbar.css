@@ -1,0 +1,131 @@
+/* FIL: components/navbar.css */
+.main-nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li a {
+  display: inline-block;
+  padding: 10px 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+.main-nav li a:hover {
+  color: #0077cc;
+}
+
+/* Dropdown indicator */
+.has-dropdown > a::after {
+  content: "\f0d7"; 
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 6px;
+  font-size: 10px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.has-dropdown.active > a::after {
+  transform: rotate(180deg);
+}
+
+.has-dropdown {
+  position: static;
+}
+
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.35s ease;
+  z-index: 1050;
+}
+
+.mega-dropdown.active {
+  opacity: 1;
+  pointer-events: auto;
+  max-height: 1000px;
+}
+
+.mega-dropdown-inner {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mega-dropdown-inner > ul > li {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mega-dropdown-inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mega-dropdown-inner ul li strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #000;
+}
+
+.mega-dropdown-inner ul li ul li a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mega-dropdown-inner ul li ul li a:hover {
+  color: #0077cc;
+}
+
+.mega-dropdown-inner ul li ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mega-dropdown-inner ul li a {
+  display: block;
+  padding: 5px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.mega-dropdown-inner ul li a:hover {
+  color: #0077cc;
+}

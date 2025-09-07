@@ -1,0 +1,46 @@
+/* FIL: layout/header.css */
+
+.site-header {
+  position: sticky;
+  top: -72px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 20;
+  transition: z-index 0.3s ease, background 0.3s ease;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff; /* eller rgba(255,255,255,0.95) om du vill transparens */
+  z-index: -1; /* ligger bakom header-inner men fortfarande ovanför hero */
+  pointer-events: none;
+}
+
+/*Shadow när du scrollar */
+.site-header.scrolled {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 40px 32px 40px;
+  height: 153px;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 29px;
+  color: #000;
+}

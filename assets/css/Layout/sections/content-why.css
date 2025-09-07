@@ -1,31 +1,19 @@
 /* ================== Content Why ================== */
 .content-section-why {
   display: flex;
+  flex-direction: column; /* staplar rubrik/brödtext + boxar vertikalt */
+  align-items: center;
   justify-content: center;
-  padding: 36px 0;
+  padding: 36px 20px;
   background: hwb(197 45% 22%);
   box-sizing: border-box;
-  margin-top: -36px;
+  position: relative;
 }
 
-.content-why-box {
-  width: 1056px;
-  max-width: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 36px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-  gap: 24px;
-}
-
-/* Rubrik + text */
 .why-intro {
   text-align: center;
-  margin-bottom: 24px;
+  max-width: 800px;
+  margin-bottom: 36px;
 }
 
 .why-title {
@@ -43,28 +31,32 @@
   color: #444;
 }
 
-/* Boxar under */
+/* Boxarna under */
 .why-boxes {
   display: flex;
+  flex-direction: row; /* horisontellt */
   gap: 24px;
   width: 100%;
+  max-width: 1056px;
   justify-content: space-between;
 }
 
 .why-box {
   flex: 1;
-  background-color: #f1f1f1;
-  border-radius: 8px;
+  background-color: #fff; /* vit bakgrund */
+  border-radius: 0; /* inga rundade kanter om du vill */
   padding: 24px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* rubrik + lista vertikalt */
+  gap: 16px;
 }
 
 .why-box h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 24px;
-  margin-bottom: 15px;
-  text-align: left;
+  margin: 0;
 }
 
 .why-box ul {
@@ -76,7 +68,7 @@
   color: #444;
 }
 
-/* Responsivt */
+/* Responsivt: staplar boxarna vertikalt på mindre skärmar */
 @media (max-width: 1024px) {
   .why-boxes {
     flex-direction: column;

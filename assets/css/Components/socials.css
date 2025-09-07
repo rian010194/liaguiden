@@ -1,0 +1,18 @@
+/* FIL: components/socials.css */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-right .social-icon {
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right .social-icon:hover {
+  color: #0077cc;
+}

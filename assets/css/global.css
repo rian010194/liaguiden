@@ -1,0 +1,54 @@
+/* ========== Variables ========== */
+:root {
+  --color-text: #333;
+  --color-heading: #000;
+  --color-primary: #0077cc;
+  --color-bg: #fff;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* ========== Base typography ========== */
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== Utility classes ========== */
+.text-uppercase { text-transform: uppercase; }
+.text-center { text-align: center; }
+.hidden { display: none; }
+
+/* Fonts, typografi, färger används flera gånger */
+.content-title, .content2 h2, .content3 h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.content-text, .content2 p, .content2 ul, .content3 p {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #444;
+}
+
+.content-btn, .cta-content2, .cta-student, .cta-company {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.content-btn:hover,
+.cta-content2:hover,
+.cta-student:hover,
+.cta-company:hover {
+  background-color: #005fa3;
+}

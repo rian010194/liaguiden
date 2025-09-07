@@ -5,24 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liaguiden</title>
 
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/content.css">
-  <link rel="stylesheet" href="css/content-why.css">
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/global.css">
+
+  <!-- Layout -->
+  <link rel="stylesheet" href="assets/css/layout/header.css">
+
+  <!-- Components -->
+  <link rel="stylesheet" href="assets/css/components/navbar.css">
+  <link rel="stylesheet" href="assets/css/components/buttons.css">
+  <link rel="stylesheet" href="assets/css/components/socials.css">
+  <link rel="stylesheet" href="assets/css/components/hamburger.css">
+
+  <!-- Sektioner -->
+  <link rel="stylesheet" href="assets/css/layout/sections/content.css">
+  <link rel="stylesheet" href="assets/css/layout/sections/content-why.css">
+  <link rel="stylesheet" href="assets/css/layout/sections/hero.css">
+
+  <!-- Fonts och ikoner -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Open+Sans:wght@400&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 
 <header class="site-header">
-<div class="header-inner">
+  <div class="header-bg"></div>
+  <div class="header-inner">
     <div class="logo">Liaguiden</div>
 
     <button class="hamburger"><i class="fas fa-bars"></i></button>
 
     <nav class="main-nav">
       <ul>
-        <!-- Guider -->
         <li class="has-dropdown" data-dropdown="guider">
           <a href="#">Guider</a>
           <div class="mega-dropdown" id="dropdown-guider">
@@ -64,7 +79,6 @@
           </div>
         </li>
 
-        <!-- Karriär -->
         <li class="has-dropdown" data-dropdown="karriar">
           <a href="#">Karriär</a>
           <div class="mega-dropdown" id="dropdown-karriar">
@@ -107,7 +121,6 @@
 
         <div class="hover-zone"></div>
 
-        <!-- Övriga länkar -->
         <li><a href="#">Vad är LIA?</a></li>
         <li><a href="#">Support</a></li>
       </ul>
@@ -119,13 +132,11 @@
       <button class="btn-login">Logga in</button>
       <a href="#" class="create-account-text">Skapa konto</a>
     </div>
-</div>
-   <!-- Mobilmeny som är separat -->
+  </div>
 
-   <div class="mobile-menu">
-
+  <!-- Mobilmeny -->
+  <div class="mobile-menu">
   <ul>
-    <!-- Guider -->
     <li class="has-dropdown">
       <a href="#">Guider</a>
       <div class="mega-dropdown">
@@ -167,7 +178,6 @@
       </div>
     </li>
 
-    <!-- Karriär -->
     <li class="has-dropdown">
       <a href="#">Karriär</a>
       <div class="mega-dropdown">
@@ -208,14 +218,12 @@
       </div>
     </li>
 
-    <!-- Övriga länkar -->
     <li><a href="#">Vad är LIA?</a></li>
     <li><a href="#">Support</a></li>
   </ul>
 </div>
 
 </header>
-
 
 <section class="hero">
   <div class="hero-content">
@@ -224,6 +232,7 @@
   </div>
 </section>
 
+<!-- ================= Content Section ================= -->
 <section class="content-section">
   <div class="content-box">
     <div class="content-inner">
@@ -242,39 +251,35 @@
   </div>
 </section>
 
+<!-- ================= Why Section ================= -->
 <section class="content-section-why">
-  <div class="content-why-box">
-    <div class="why-intro">
-      <h2 class="why-title">Varför finns vi?</h2>
-      <p class="why-text">
-        Många företag upplever att det är krångligt att ta emot en elev – från handledarskap till pappersarbete. Samtidigt kan studenter ha svårt att hitta praktikplatser och projekt som passar deras kompetenser och intressen. Liaguiden samlar alla steg, instruktioner och resurser på ett ställe, så att processen blir smidig och tydlig för både företag och studenter.
-      </p>
+  <div class="why-intro">
+    <h2 class="why-title">Varför finns vi?</h2>
+    <p class="why-text">Många företag upplever att det är krångligt att ta emot en elev – från handledarskap till pappersarbete. Samtidigt kan studenter ha svårt att hitta praktikplatser och projekt som passar deras kompetenser och intressen. Liaguiden samlar alla steg, instruktioner och resurser på ett ställe, så att processen blir smidig och tydlig för både företag och studenter.</p>
+  </div>
+
+  <div class="why-boxes">
+    <div class="why-box">
+      <h3>Våra tjänster</h3>
+      <ul>
+        <li>Steg-för-steg-guide för att enkelt ta emot elever</li>
+        <li>Mallar och stöd för kvalitativt handledarskap</li>
+        <li>Administrativa verktyg och pappersarbete förenklat</li>
+        <li>Praktik- och projektmöjligheter för studenter</li>
+        <li>Matchning av elever med relevanta företag och projekt</li>
+        <li>Tips och resurser för både företag och studenter</li>
+      </ul>
     </div>
-
-    <div class="why-boxes">
-      <div class="why-box">
-        <h3>Våra tjänster</h3>
-        <ul>
-          <li>Steg-för-steg-guide för att enkelt ta emot elever</li>
-          <li>Mallar och stöd för kvalitativt handledarskap</li>
-          <li>Administrativa verktyg och pappersarbete förenklat</li>
-          <li>Praktik- och projektmöjligheter för studenter</li>
-          <li>Matchning av elever med relevanta företag och projekt</li>
-          <li>Tips och resurser för både företag och studenter</li>
-        </ul>
-      </div>
-
-      <div class="why-box">
-        <h3>Varför ta emot LIA?</h3>
-        <ul>
-          <li>Praktisk kompetens som bidrar direkt i arbetet</li>
-          <li>Nya idéer och innovativa perspektiv till företaget</li>
-          <li>Möjlighet att upptäcka framtida talanger tidigt</li>
-          <li>Stärker företagets profil och engagemang i utbildning</li>
-          <li>Flexibel arbetskraft för projekt och avlastning</li>
-          <li>Låg kostnad med stöd från skolan och guider</li>
-        </ul>
-      </div>
+    <div class="why-box">
+      <h3>Varför ta emot LIA?</h3>
+      <ul>
+        <li>Praktisk kompetens som bidrar direkt i arbetet</li>
+        <li>Nya idéer och innovativa perspektiv till företaget</li>
+        <li>Möjlighet att upptäcka framtida talanger tidigt</li>
+        <li>Stärker företagets profil och engagemang i utbildning</li>
+        <li>Flexibel arbetskraft för projekt och avlastning</li>
+        <li>Låg kostnad med stöd från skolan och guider</li>
+      </ul>
     </div>
   </div>
 </section>
