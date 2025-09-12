@@ -1,23 +1,23 @@
-/* ================== Content Section ================== */
+/* FIL: components/content.css */
+
 .content-section {
   display: flex;
-  flex-direction: row; /* horisontellt på stora skärmar */
+  flex-direction: row;
   justify-content: center;
   gap: 30px;
   margin: 20px auto;
   max-width: 1200px;
   align-items: flex-start;
-  flex-wrap: nowrap; /* se till att boxarna inte bryts om de får plats */
+  flex-wrap: nowrap;
   position: relative;
-  
+  z-index: 10; /* ligger alltid över header.behind */
 }
 
 .content-box {
   width: 528px;
   height: 283px;
-  /* Ingen bakgrundsfärg, ingen border-radius, ingen box-shadow */
   display: flex;
-  flex-direction: column; /* rubrik, text, knapp staplas vertikalt */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 36px 24px;
@@ -66,7 +66,7 @@
   background-color: #005fa3;
 }
 
-/* ================== Responsivt ================== */
+/* Responsivt */
 @media (max-width: 768px) {
   .content-section {
     flex-direction: column;

@@ -19,7 +19,6 @@
   position: absolute;
   top: 100%;
   left: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   z-index: 1500;
 }
 
@@ -72,7 +71,6 @@
     width: 100%;
     background: #fff;
     padding: 10px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
   .main-nav.active,

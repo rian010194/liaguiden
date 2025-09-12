@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Dropdown GSAP</title>
+  <link rel="stylesheet" href="test.css">
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Liaguiden</div>
+  <button class="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav class="main-nav">
+    <ul>
+      <li class="has-dropdown">
+        <a href="#">Guider</a>
+        <div class="mega-dropdown">
+          <ul>
+            <li><a href="#">Hur ansöker man till praktik?</a></li>
+            <li><a href="#">Förberedelser inför första dagen</a></li>
+            <li><a href="#">Praktikavtal och dokument</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Karriär</a>
+        <div class="mega-dropdown">
+          <ul>
+            <li><a href="#">Hitta jobb efter examen</a></li>
+            <li><a href="#">Praktik som väg in i arbetslivet</a></li>
+            <li><a href="#">Extrajobb under studier</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script src="test.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 /* FIL: components/navbar.css */
+
 .main-nav ul {
   display: flex;
   gap: 30px;
@@ -15,6 +16,7 @@
   text-transform: uppercase;
   color: #333;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .main-nav li a:hover {
@@ -40,6 +42,7 @@
   position: static;
 }
 
+/* Mega dropdown */
 .mega-dropdown {
   position: absolute;
   top: 100%;
@@ -47,13 +50,12 @@
   transform: translateX(-50%);
   width: 1000px;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   opacity: 0;
   pointer-events: none;
   max-height: 0;
   overflow: hidden;
   transition: opacity 0.3s ease, max-height 0.35s ease;
-  z-index: 1050;
+  z-index: inherit; /* följer headerns z-index */
 }
 
 .mega-dropdown.active {

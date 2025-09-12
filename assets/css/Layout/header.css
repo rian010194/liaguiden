@@ -1,13 +1,11 @@
-/* FIL: layout/header.css */
-
+/* ================== Header ================== */
 .site-header {
   position: sticky;
-  top: -72px;
+  top: 0;
   width: 100%;
   background: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 20;
-  transition: z-index 0.3s ease, background 0.3s ease;
+  z-index: 1000;
 }
 
 .header-bg {
@@ -16,23 +14,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fff; /* eller rgba(255,255,255,0.95) om du vill transparens */
-  z-index: -1; /* ligger bakom header-inner men fortfarande ovanför hero */
+  background: #fff;
+  z-index: -1;
   pointer-events: none;
+
 }
-
-/*Shadow när du scrollar */
-.site-header.scrolled {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-
 .header-inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 40px 32px 40px;
-  height: 153px;
+  align-items: center;
+  padding: 20px 40px;
   max-width: 1920px;
   margin: 0 auto;
   position: relative;
@@ -41,6 +32,194 @@
 .logo {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 29px;
+  font-size: 28px;
   color: #000;
+}
+/* ================== Navbar ================== */
+
+.main-nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li a {
+  display: inline-block;
+  padding: 10px 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-nav li a:hover {
+  color: #0077cc;
+}
+
+.has-dropdown > a::after {
+  content: "\f0d7";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 6px;
+  font-size: 10px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.has-dropdown.active > a::after {
+  transform: rotate(180deg);
+}
+
+/* ================== Mega Dropdown ================== */
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.mega-dropdown-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fff;
+  padding: 20px 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-column strong {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.dropdown-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dropdown-column ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.dropdown-column ul li a:hover {
+  color: #0077cc;
+}
+
+/* ================== Header Right ================== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-right .social-icon {
+  font-size: 18px;
+  color: #333;
+}
+
+.header-right .social-icon:hover {
+  color: #0077cc;
+}
+
+.btn-login {
+  padding: 8px 16px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.create-account-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+.create-account-text:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+/* ================== Hamburger ================== */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #333;
+  z-index: 2000;
+}
+
+/* ================== Mobile ================== */
+@media (max-width: 950px) {
+  .hamburger {
+    display: block;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    padding: 80px 20px 20px 20px;
+    display: block;
+    transform: translateX(100%);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1500;
+    transition: transform 0.4s ease;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav li a {
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  .mega-dropdown-inner {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .header-right {
+    display: none;
+  }
 }

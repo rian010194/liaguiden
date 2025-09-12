@@ -128,12 +128,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const header = document.querySelector('.site-header');
-const content = document.querySelector('.content-section');
+const hero = document.querySelector('.hero');
 
 window.addEventListener('scroll', () => {
-  if(window.scrollY >= content.offsetTop) {
-    header.style.zIndex = 5; // header går bakom content
+  const scrollY = window.scrollY;
+  const heroHeight = hero ? hero.offsetHeight : 0;
+
+  if (scrollY >= heroHeight) {
+    // Header försvinner helt
+    header.classList.add('behind');
+    header.classList.remove('scrolled');
+  } else if (scrollY > 0) {
+    // Header delvis gömd
+    header.classList.add('scrolled');
+    header.classList.remove('behind');
   } else {
-    header.style.zIndex = 20; // header framför hero
+    // Scrollat till toppen → header syns fullt
+    header.classList.remove('scrolled', 'behind');
   }
 });
+
+
+
